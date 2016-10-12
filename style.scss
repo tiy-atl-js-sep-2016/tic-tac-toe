@@ -4,6 +4,11 @@
     float: left;
 }
 
+@mixin background-transition ($time) {
+    background: lightgrey;
+    transition: background $time ease;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -13,9 +18,19 @@
     max-width: 500px;
 
     .space {
-        background: lightgrey;
         border: 1px double black;
         padding: 5px;
         @include square-box(130px);
+        @include background-transition(0.5s);
     }
+
+    .red {
+        background: red;
+    }
+
+    .blue {
+        background: blue;
+    }
+
 }
+
