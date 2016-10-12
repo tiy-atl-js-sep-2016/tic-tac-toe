@@ -25,7 +25,7 @@ function switchPlayer () {
 }
 
 function toggleColor (event) {
-  var target = event.target;
+  var target = $(event.target);
   var playerClass;
 
   if (currentPlayer === "X") {
