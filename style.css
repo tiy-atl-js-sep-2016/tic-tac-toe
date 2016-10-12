@@ -11,7 +11,7 @@
     height: 130px;
     float: left;
     background: lightgrey;
-    transition: background 0.5s ease; }
+    transition: background 1s ease; }
   .board .red {
     background: red; }
   .board .blue {

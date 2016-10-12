@@ -7,6 +7,9 @@
 @mixin background-transition ($time) {
     background: lightgrey;
     transition: background $time ease;
+
+    // transition: height $time ease;
+    // transition: width $time ease;
 }
 
 * {
@@ -21,7 +24,7 @@
         border: 1px double black;
         padding: 5px;
         @include square-box(130px);
-        @include background-transition(0.5s);
+        @include background-transition(1.0s);
     }
 
     .red {
