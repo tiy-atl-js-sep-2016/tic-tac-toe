@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box; }
+
+.board {
+  margin: 20px auto;
+  max-width: 500px; }
+  .board .space {
+    background: lightgrey;
+    border: 1px double black;
+    padding: 5px;
+    width: 130px;
+    height: 130px;
+    float: left; }
