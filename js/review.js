@@ -67,7 +67,7 @@ function cheaperThan50Dollars (item) {
 };
 
 var betterData = data.results.map(extractUsefulData);
-var generatedHTML = betterData.map(makeEtsyHtml);
+// var generatedHTML = betterData.map(makeEtsyHtml);
 
 // loop over generatedHTML and add to page
 
@@ -83,20 +83,34 @@ betterData.filter(function (item) {
   return Number(item.price) < 50;
 });
 
-var cheaperThan50 = betterData.filter(function (x) { return item.price < 50; });
-var costlierThan50 = betterData.filter(function (x) { return item.price > 50; });
+var cheaperThan50 = betterData.filter(function (x) { return x.price < 50; });
+var costlierThan50 = betterData.filter(function (x) { return x.price > 50; });
 
-function renderEtsy (item) {
-  // THIS WAY LIES PAIN
-  // loop over all the etsy data
-  // grab the item
-  // run through template literal
-  // get the part of the page
-  // add it to the page
-  // THIS WAY LIES SANITY
-  return `
-      <div class="etsy-item">
-        <img src ... ${item.?} ...
-      </div>
-    `;
-}
+function translate (phrase) {
+  var result = "";
+
+  for (var i = 0; i < phrase.length; i++) {
+    var letter = phrase[i];
+    var lowerLetter = letter.toLowerCase();
+
+    var vowels = ['a', 'e', 'i', 'o', 'u'];
+    if (vowels.includes(lowerLetter) || letter === " ") {
+      result += letter;
+    } else {
+      result += letter + "o" + letter;
+    }
+
+  }
+
+  return result;
+
+};
+
+console.assert(translate("a") === "a", "translate vowels");
+console.assert(translate("l") === "lol", "translate consonants");
+console.assert(translate("brit") === "bobroritot", "translate whole words");
+console.assert(translate("Emily") === "Emomilolyoy", "treat capital vowels the same");
+console.assert(translate("Brit") === "BoBroritot", "treat capital consonants the same");
+console.assert(translate("this is fun") === "tothohisos isos fofunon", "handle spaces like vowels");
+
+// console.assert(translate("Alajuwon") === "Alolajojuwowonon", "Translation is failing");
