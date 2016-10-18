@@ -85,3 +85,18 @@ betterData.filter(function (item) {
 
 var cheaperThan50 = betterData.filter(function (x) { return item.price < 50; });
 var costlierThan50 = betterData.filter(function (x) { return item.price > 50; });
+
+function renderEtsy (item) {
+  // THIS WAY LIES PAIN
+  // loop over all the etsy data
+  // grab the item
+  // run through template literal
+  // get the part of the page
+  // add it to the page
+  // THIS WAY LIES SANITY
+  return `
+      <div class="etsy-item">
+        <img src ... ${item.?} ...
+      </div>
+    `;
+}
