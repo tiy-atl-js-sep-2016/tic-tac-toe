@@ -86,24 +86,25 @@ betterData.filter(function (item) {
 var cheaperThan50 = betterData.filter(function (x) { return x.price < 50; });
 var costlierThan50 = betterData.filter(function (x) { return x.price > 50; });
 
+function isVowel (letter) {
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  return vowels.includes(letter.toLowerCase());
+}
+
 function translate (phrase) {
   var result = "";
 
-  for (var i = 0; i < phrase.length; i++) {
-    var letter = phrase[i];
-    var lowerLetter = letter.toLowerCase();
+  phrase.split("").forEach(function (letter) {
+    var specialLetter = isVowel(letter) || letter === ' ';
 
-    var vowels = ['a', 'e', 'i', 'o', 'u'];
-    if (vowels.includes(lowerLetter) || letter === " ") {
+    if (specialLetter) {
       result += letter;
     } else {
       result += letter + "o" + letter;
     }
-
-  }
+  });
 
   return result;
-
 };
 
 console.assert(translate("a") === "a", "translate vowels");
